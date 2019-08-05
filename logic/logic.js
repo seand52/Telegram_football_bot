@@ -13,7 +13,8 @@ class Logic {
     if (longerLength == 0) {
       return 1.0;
     }
-    return (longerLength - this.editDistance(longer, shorter)) / parseFloat(longerLength);
+    const test = (longerLength - this.editDistance(longer, shorter)) / parseFloat(longerLength);
+    return test
   }
 
   editDistance(s1, s2) {
@@ -43,7 +44,9 @@ class Logic {
     return costs[s2.length];
   }
 
-  fetchData(id) {
+  fetchData(id, numberOfMatches) {
+
+    const currentDate = moment()
     return axios({
       method: 'get',
       url: `https://api.football-data.org/v2/teams/${id}/matches`,
@@ -54,9 +57,13 @@ class Logic {
     })
     .then(res => {
       const {matches} = res.data
-      const nextMatches = matches.filter(item => moment.utc(item.utcDate).diff(currentDate, 'days') > 0);
-      const nextMatch = nextMatches[0]
-      return `The next match is ${nextMatch.homeTeam.name} vs ${nextMatch.awayTeam.name} on ${moment.utc(nextMatch.utcDate).format('LLLL')}, good luck!`
+      const futureFatches = matches.filter(item => moment.utc(item.utcDate).diff(currentDate, 'days') > 0);
+      const nextMatches = futureFatches.slice(0, numberOfMatches)
+      if (nextMatches.length === 1) {
+      return `The next match is ${nextMatches[0].homeTeam.name} vs ${nextMatches[0].awayTeam.name} on ${moment.utc(nextMatches[0].utcDate).local().format('LLLL')} (GMT +2), good luck!`
+      }
+      const messagesArray = nextMatches.map(item => `-${item.homeTeam.name} vs ${item.awayTeam.name} on ${moment.utc(item.utcDate).local().format('LLLL')} (GMT + 2)`)
+      return `The next match es are:\n${messagesArray.join('\n')} \n good luck!`
     })
     .catch(err => {
       return 'Sorry, I was not able to find the upcoming matches!'

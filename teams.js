@@ -78,5 +78,86 @@ module.exports = [
   {
     "id": 745,
     "team": "Leganés"
+  },
+
+  {
+    "id": 57,
+    "team": "Arsenal"
+  },
+  {
+    "id": 58,
+    "team": "Aston Villa"
+  },
+  {
+    "id": 61,
+    "team": "Chelsea"
+  },
+  {
+    "id": 62,
+    "team": "Everton"
+  },
+  {
+    "id": 64,
+    "team": "Liverpool"
+  },
+  {
+    "id": 65,
+    "team": "Man City"
+  },
+  {
+    "id": 66,
+    "team": "Man United"
+  },
+  {
+    "id": 67,
+    "team": "Newcastle"
+  },
+  {
+    "id": 68,
+    "team": "Norwich"
+  },
+  {
+    "id": 73,
+    "team": "Tottenham"
+  },
+  {
+    "id": 76,
+    "team": "Wolverhampton"
+  },
+  {
+    "id": 328,
+    "team": "Burnley"
+  },
+  {
+    "id": 338,
+    "team": "Leicester City"
+  },
+  {
+    "id": 340,
+    "team": "Southampton"
+  },
+  {
+    "id": 346,
+    "team": "Watford"
+  },
+  {
+    "id": 354,
+    "team": "Crystal Palace"
+  },
+  {
+    "id": 356,
+    "team": "Sheffield Utd"
+  },
+  {
+    "id": 397,
+    "team": "Brighton Hove"
+  },
+  {
+    "id": 563,
+    "team": "West Ham"
+  },
+  {
+    "id": 1044,
+    "team": "Bournemouth"
   }
 ]
