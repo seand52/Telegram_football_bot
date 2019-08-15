@@ -1,3 +1,4 @@
+require("dotenv").config();
 const axios = require('axios');
 const moment = require('moment')
 
@@ -52,7 +53,7 @@ class Logic {
       url: `https://api.football-data.org/v2/teams/${id}/matches`,
       headers: {
         'Content-Type': 'application/json',
-        'X-Auth-Token': 'bce19fcd8555454f88cc030aa3dd5c09'
+        'X-Auth-Token': `${process.env.FOOTBALL_API_TOKEN}`
       }
     })
     .then(res => {
