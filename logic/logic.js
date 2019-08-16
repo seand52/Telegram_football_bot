@@ -58,7 +58,7 @@ class Logic {
     })
     .then(res => {
       const {matches} = res.data
-      const futureFatches = matches.filter(item => moment.utc(item.utcDate).diff(currentDate, 'days') > 0);
+      const futureFatches = matches.filter(item => moment.utc(item.utcDate).diff(currentDate, 'minutes') > 0);
       const nextMatches = futureFatches.slice(0, numberOfMatches)
       if (nextMatches.length === 1) {
       return `The next match is ${nextMatches[0].homeTeam.name} vs ${nextMatches[0].awayTeam.name} on ${moment.utc(nextMatches[0].utcDate).local().format('LLLL')} (GMT +2), good luck!`
