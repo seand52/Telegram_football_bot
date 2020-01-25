@@ -66,7 +66,7 @@ class Logic {
           } on ${moment
             .utc(nextMatches[0].utcDate)
             .local()
-            .add(2, "hours")
+            .add(1, "hours")
             .format("LLLL")} (GMT +2), good luck!`;
         }
         const messagesArray = nextMatches.map(
@@ -74,7 +74,7 @@ class Logic {
             `-${item.homeTeam.name} vs ${item.awayTeam.name} on ${moment
               .utc(item.utcDate)
               .local()
-              .add(2, "hours")
+              .add(1, "hours")
               .format("LLLL")} (GMT + 2)`
         );
         return `The next match es are:\n${messagesArray.join(
